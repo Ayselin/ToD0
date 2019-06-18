@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import cx from 'classnames'
+import styles from './ToDo.css'
 import { func, number, string, shape } from 'prop-types';
+import { addTodo } from '../store';
 
 const inputValue = (initialValue) => {
     const [value, setValue] = useState(initialValue);
@@ -29,20 +32,26 @@ TodoItem.propTypes = {
 const TodoList = ({ todos, onChange }) => {
     const [todosState, setTodosState] = useState(todos)
     const onItemChange = ({ id, value }) => setTodosState(todosState.map(todo => {
+        // Here is some logic to update existing todos..
+        // But I can't see any logic for adding them
         if (todo.id === id) return { ...todo, value }
         return todo
     }))
     useEffect(() => onChange(todosState), [todosState])
 
     return (
-    <div>
+    <div className={cx(styles.main)}>
+        {/* This is our existing todos, adding a new one should be outside this loop */}
         {todos.map(todo => (
-            <button>Add Todo</button>
-            <TodoItem
-                key={todo.value}
-                todo={todo}
-                onChange={onItemChange}
-            >{todo.value}</TodoItem>
+            <React.Fragment key={todo.id}>
+                <button onClick={() => {
+                    addTodo({ value: newTodo }
+                }}>Add Todo</button>
+                <TodoItem
+                    todo={todo}
+                    onChange={onItemChange}
+                >{todo.value}</TodoItem>
+            </React.Fragment>
         ))}
     </div>
     );

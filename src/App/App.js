@@ -5,12 +5,15 @@ import TodoList from '../ToDo/TodoList';
 
 
 const App = () => {
-  const [todos, setTodos] = useState([{ id: 1, value: 'Test' }]);
+  const [todos, setTodos] = useState([{ id: 1, value: '' }]);
 
   console.log({ todos })
+
+  
   return (
     
       <div className={cx(styles.App)}>
+        <div className={cx(styles.header)}>React Todo Application</div>
         <TodoList 
           onChange={newTodos => console.log({ newTodos }) || setTodos(newTodos)}
           todos={todos}
