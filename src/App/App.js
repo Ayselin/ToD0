@@ -5,11 +5,8 @@ import TodoList from '../ToDo/TodoList';
 
 
 const App = () => {
-  const [todos, setTodos] = useState([{ id: 1, value: '' }]);
+  const [todos, setTodos] = useState([]);
 
-  console.log({ todos })
-
-  
   return (
     
       <div className={cx(styles.App)}>

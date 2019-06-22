@@ -36,9 +36,3 @@ const reducer = (state = [], action) => {
 
 const store = createStore(reducer)
 export default store
-store.subscribe(() => console.log(store.getState()))
-
-store.dispatch(addTodo({ id: 1, value: 'foo' }))
-store.dispatch(addTodo({ id: 2, value: 'bar' }))
-store.dispatch(removeTodo(1))
-store.dispatch(changeTodo({ id: 2, value: 'baz' }))

@@ -1,3 +1,15 @@
 .container {
-    background-color: blue;
+    background-color: rgb(135, 135, 177);
+}
+.title {
+    text-align: center;
+}
+.main {
+    text-align: center;
+}
+.footer {
+    text-align: center;
+}
+.list {
+    list-style: none;
 }
